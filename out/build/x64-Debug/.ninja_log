@@ -1,0 +1,51 @@
+# ninja log v5
+10	29	0	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/CMakeFiles/cmake.verify_globs	60afe483e716ed9
+53	384	7392008613441271	_deps/openxr-build/src/CMakeFiles/openxr-gfxwrapper.dir/common/gfxwrapper_opengl.c.obj	30383d1e46abb157
+385	423	7392008613810275	_deps/openxr-build/src/openxr-gfxwrapper.lib	860adc181e1a4050
+38	1060	7392121982623916	src/CMakeFiles/vr_mujoco.dir/__/Common/GraphicsAPI.cpp.obj	a13a098d665f3c62
+32	604	7392008615336214	_deps/openxr-build/include/openxr/openxr.h	9a8ea00ac40da2f6
+36	589	7392008615186621	_deps/openxr-build/include/openxr/openxr_loader_negotiation.h	d8302c0bd46d00d0
+36	589	7392008615186621	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_loader_negotiation.h	d8302c0bd46d00d0
+39	595	7392008615216535	_deps/openxr-build/include/openxr/openxr_platform.h	d553ff98a636158f
+39	595	7392008615216535	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_platform.h	d553ff98a636158f
+1318	2034	7392008629911390	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/__/common/object_info.cpp.obj	b63818f4378efebc
+32	604	7392008615336214	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr.h	9a8ea00ac40da2f6
+1321	2448	7392008634040346	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/xr_generated_loader.cpp.obj	dbf2da0873803977
+56	632	7392008615555619	_deps/openxr-build/src/xr_generated_dispatch_table_core.c	8aa55f5119b14956
+944	1294	7392008622205107	_deps/openxr-build/src/loader/xr_generated_loader.cpp	c94d551e473548a7
+1302	1804	7392008627627495	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/loader_init_data.cpp.obj	d08d2e127fdc60f4
+43	961	7392121981634808	src/CMakeFiles/vr_mujoco.dir/__/Common/OpenXRDebugUtils.cpp.obj	d1e83b3246d861d8
+56	632	7392008615555619	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-build/src/xr_generated_dispatch_table_core.c	8aa55f5119b14956
+941	1294	7392008622195136	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-build/src/loader/xr_generated_loader.hpp	3b3c4840ddcf1488
+1299	2485	7392008634409369	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/loader_core.cpp.obj	4b25a7d70476dcd2
+61	637	7392008615605489	_deps/openxr-build/src/xr_generated_dispatch_table_core.h	200054d3f93a8aaf
+1331	2033	7392008629911390	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/json_value.cpp.obj	aad8813e3d9c59bb
+2744	2777	7392008637385773	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/src/VertexShader.glsl	dd24f58076ee1efd
+61	637	7392008615605489	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-build/src/xr_generated_dispatch_table_core.h	200054d3f93a8aaf
+50	934	7392008618592585	_deps/openxr-build/include/openxr/openxr_reflection_structs.h	682510d5e5e2ce8b
+50	934	7392008618592585	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_reflection_structs.h	682510d5e5e2ce8b
+43	936	7392008618602562	_deps/openxr-build/include/openxr/openxr_reflection.h	6769acb679b5ec8b
+46	940	7392008618642457	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_reflection_parent_structs.h	6266c50f406e1aef
+43	936	7392008618602562	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_reflection.h	6769acb679b5ec8b
+46	940	7392008618642457	_deps/openxr-build/include/openxr/openxr_reflection_parent_structs.h	6266c50f406e1aef
+1297	2537	7392008634947926	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/api_layer_interface.cpp.obj	70a234e1ef368b1e
+941	1294	7392008622195136	_deps/openxr-build/src/loader/xr_generated_loader.hpp	3b3c4840ddcf1488
+944	1294	7392008622205107	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-build/src/loader/xr_generated_loader.cpp	c94d551e473548a7
+1294	1397	7392008623588305	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/android_utilities.cpp.obj	89de57cc9e9bd356
+1323	1406	7392008623668085	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/__/xr_generated_dispatch_table_core.c.obj	8f29cf0c38786802
+1336	1425	7392008623857579	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/loader.rc.res	1f123c84825d46eb
+1334	2022	7392008629791708	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/json_writer.cpp.obj	e0ada7db7da45919
+1328	2057	7392008630160722	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/__/external/jsoncpp/src/lib_json/json_reader.cpp.obj	f2c61981adc14108
+1315	2590	7392008635476502	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/runtime_interface.cpp.obj	8a716ee13ca163bf
+1310	2332	7392008632903380	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/loader_logger_recorders.cpp.obj	ecc260928780fbe3
+1304	2471	7392008634279706	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/loader_instance.cpp.obj	6759e23c7eb0da85
+1326	2515	7392008634738477	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/__/common/filesystem_utils.cpp.obj	e089b01e45a605c1
+1308	2533	7392008634908021	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/loader_logger.cpp.obj	c6260f16d4e146e
+1313	2647	7392008636044980	_deps/openxr-build/src/loader/CMakeFiles/openxr_loader.dir/manifest_file.cpp.obj	771fbbe0e050fc6b
+2648	2743	7392008636881876	_deps/openxr-build/src/loader/openxr_loaderd.lib	f50ff07e330b4c22
+2744	2777	7392008637385773	src/VertexShader.glsl	dd24f58076ee1efd
+2747	2780	7392008637415693	src/PixelShader.glsl	90e9d2cc6a2f6680
+2747	2780	7392008637415693	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/src/PixelShader.glsl	90e9d2cc6a2f6680
+41	1333	7392121985336472	src/CMakeFiles/vr_mujoco.dir/__/Common/GraphicsAPI_OpenGL.cpp.obj	d66e6df4ffd5b91f
+34	1196	7392122396322501	src/CMakeFiles/vr_mujoco.dir/main.cpp.obj	8f7bd63a7228f467
+1197	1536	7392122398627630	src/vr_mujoco.exe	e6d6ca2b04137bd5

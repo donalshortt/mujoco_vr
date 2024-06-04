@@ -1,0 +1,538 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22.1"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src-Debug-c94b7c2814d5a21df52c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.22.1"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						34
+					]
+				},
+				{
+					"build" : "_deps/openxr-build",
+					"childIndexes" : 
+					[
+						3,
+						5
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.openxr-build-Debug-19a818de1ca32a638c57.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "out/build/x64-Debug/src/openxr",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						33
+					]
+				},
+				{
+					"build" : "_deps/openxr-build/include",
+					"childIndexes" : 
+					[
+						4
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.openxr-build.include-Debug-63db7dd41702091a4245.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "out/build/x64-Debug/src/openxr/include"
+				},
+				{
+					"build" : "_deps/openxr-build/include/openxr",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.openxr-build.include.openxr-Debug-5ab217acb31f716daf3b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 2,
+					"source" : "out/build/x64-Debug/src/openxr/include/openxr",
+					"targetIndexes" : 
+					[
+						30
+					]
+				},
+				{
+					"build" : "_deps/openxr-build/src",
+					"childIndexes" : 
+					[
+						6,
+						7
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.openxr-build.src-Debug-cbf16584fc20634e1a34.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "out/build/x64-Debug/src/openxr/src",
+					"targetIndexes" : 
+					[
+						31,
+						35,
+						36
+					]
+				},
+				{
+					"build" : "_deps/openxr-build/src/loader",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.openxr-build.src.loader-Debug-b6bad365d688283075a7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 2,
+					"source" : "out/build/x64-Debug/src/openxr/src/loader",
+					"targetIndexes" : 
+					[
+						32
+					]
+				},
+				{
+					"build" : "_deps/openxr-build/src/api_layers",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-_deps.openxr-build.src.api_layers-Debug-f575a3b0aef38019c668.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 2,
+					"source" : "out/build/x64-Debug/src/openxr/src/api_layers",
+					"targetIndexes" : 
+					[
+						28,
+						29
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "mujoco_vr"
+				},
+				{
+					"childIndexes" : 
+					[
+						2
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "vr_mujoco",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						34
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					],
+					"name" : "OPENXR",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						35,
+						36
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "Continuous::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-Continuous-Debug-c1cce353f3e1128118d4.json",
+					"name" : "Continuous",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ContinuousBuild::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ContinuousBuild-Debug-4adebeb4b67161b45e58.json",
+					"name" : "ContinuousBuild",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ContinuousConfigure::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ContinuousConfigure-Debug-04fa39fcc064edf704c8.json",
+					"name" : "ContinuousConfigure",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ContinuousCoverage::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ContinuousCoverage-Debug-6a724b7d7e79514d22a0.json",
+					"name" : "ContinuousCoverage",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ContinuousMemCheck::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ContinuousMemCheck-Debug-3a1649cff78ec1cc06b6.json",
+					"name" : "ContinuousMemCheck",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ContinuousStart::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ContinuousStart-Debug-05c2054836062aa7380f.json",
+					"name" : "ContinuousStart",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ContinuousSubmit::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ContinuousSubmit-Debug-2dd4c6ad2cce1fd42511.json",
+					"name" : "ContinuousSubmit",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ContinuousTest::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ContinuousTest-Debug-fc224d4378cdfea6f343.json",
+					"name" : "ContinuousTest",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ContinuousUpdate::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ContinuousUpdate-Debug-2b8a082263c2d4a83e25.json",
+					"name" : "ContinuousUpdate",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Experimental::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-Experimental-Debug-c0569207a4fa26b499f3.json",
+					"name" : "Experimental",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ExperimentalBuild::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ExperimentalBuild-Debug-d43f91ed24c65033beed.json",
+					"name" : "ExperimentalBuild",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ExperimentalConfigure::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ExperimentalConfigure-Debug-ffadad67ffdcba4293e9.json",
+					"name" : "ExperimentalConfigure",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ExperimentalCoverage::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ExperimentalCoverage-Debug-0d47e98bfe7b037675ff.json",
+					"name" : "ExperimentalCoverage",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ExperimentalMemCheck::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ExperimentalMemCheck-Debug-120a236fe8b955f6b483.json",
+					"name" : "ExperimentalMemCheck",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ExperimentalStart::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ExperimentalStart-Debug-3d288993b5d4ff8a6135.json",
+					"name" : "ExperimentalStart",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ExperimentalSubmit::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ExperimentalSubmit-Debug-8f40a7e46d1b9845bb8f.json",
+					"name" : "ExperimentalSubmit",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ExperimentalTest::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ExperimentalTest-Debug-f4ec19644167cfa7d5bf.json",
+					"name" : "ExperimentalTest",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "ExperimentalUpdate::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-ExperimentalUpdate-Debug-b5f2ac30f3b13fac07e8.json",
+					"name" : "ExperimentalUpdate",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "Nightly::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-Nightly-Debug-ae936843456a0e5f677e.json",
+					"name" : "Nightly",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NightlyBuild::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-NightlyBuild-Debug-6e5af9b85d8b2cccc4bf.json",
+					"name" : "NightlyBuild",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NightlyConfigure::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-NightlyConfigure-Debug-ea1a7652d5bf0684f7de.json",
+					"name" : "NightlyConfigure",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NightlyCoverage::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-NightlyCoverage-Debug-1d314aa6d52ca4cc1a8d.json",
+					"name" : "NightlyCoverage",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NightlyMemCheck::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-NightlyMemCheck-Debug-25fa08ae7583a3ed7bfc.json",
+					"name" : "NightlyMemCheck",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NightlyMemoryCheck::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-NightlyMemoryCheck-Debug-537ea790c1ad8237f94a.json",
+					"name" : "NightlyMemoryCheck",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NightlyStart::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-NightlyStart-Debug-85b850ef361a5c188b42.json",
+					"name" : "NightlyStart",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NightlySubmit::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-NightlySubmit-Debug-4d84d8149d8b8c984fcf.json",
+					"name" : "NightlySubmit",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NightlyTest::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-NightlyTest-Debug-29d6f0bac46be1a56eb7.json",
+					"name" : "NightlyTest",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "NightlyUpdate::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-NightlyUpdate-Debug-da5b2e8a968ce7679403.json",
+					"name" : "NightlyUpdate",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "XrApiLayer_api_dump::@787e8d56d7c30f51fa98",
+					"jsonFile" : "target-XrApiLayer_api_dump-Debug-d71a9bcd3262fac65857.json",
+					"name" : "XrApiLayer_api_dump",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "XrApiLayer_core_validation::@787e8d56d7c30f51fa98",
+					"jsonFile" : "target-XrApiLayer_core_validation-Debug-c405e1c50b1518176ae2.json",
+					"name" : "XrApiLayer_core_validation",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "generate_openxr_header::@ee2418eca024665d80f8",
+					"jsonFile" : "target-generate_openxr_header-Debug-12fa664a35ca0a5699d0.json",
+					"name" : "generate_openxr_header",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "openxr-gfxwrapper::@aca70d126e7d148c8b20",
+					"jsonFile" : "target-openxr-gfxwrapper-Debug-de1c895087e2894db79e.json",
+					"name" : "openxr-gfxwrapper",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 6,
+					"id" : "openxr_loader::@e4e27c090dc7d2a04b67",
+					"jsonFile" : "target-openxr_loader-Debug-8afd93060eab74b51198.json",
+					"name" : "openxr_loader",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "uninstall::@bdbf71f83d2ac1e3e7fb",
+					"jsonFile" : "target-uninstall-Debug-9bff400b58f7339bc091.json",
+					"name" : "uninstall",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "vr_mujoco::@145eef247bfb46b6828c",
+					"jsonFile" : "target-vr_mujoco-Debug-86ebe76ad35c81048ac8.json",
+					"name" : "vr_mujoco",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "xr_common_generated_files::@aca70d126e7d148c8b20",
+					"jsonFile" : "target-xr_common_generated_files-Debug-2e907ad5da536826612b.json",
+					"name" : "xr_common_generated_files",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "xr_global_generated_files::@aca70d126e7d148c8b20",
+					"jsonFile" : "target-xr_global_generated_files-Debug-3437feba1b70e4673977.json",
+					"name" : "xr_global_generated_files",
+					"projectIndex" : 2
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug",
+		"source" : "C:/Users/Tech Labs/work/mujoco_vr"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

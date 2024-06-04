@@ -1,0 +1,3 @@
+C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/CMakeFiles/openxr-populate.dir
+C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/CMakeFiles/edit_cache.dir
+C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/CMakeFiles/rebuild_cache.dir

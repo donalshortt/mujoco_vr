@@ -1,0 +1,117 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"out/build/x64-Debug/src/openxr/src/api_layers/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 306,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 311,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 306,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 311,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Layers",
+			"destination" : "bin/api_layers",
+			"paths" : 
+			[
+				"out/build/x64-Debug/_deps/openxr-build/src/api_layers/XrApiLayer_api_dump.json"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Layers",
+			"destination" : "bin/api_layers",
+			"paths" : 
+			[
+				"_deps/openxr-build/src/api_layers/XrApiLayer_api_dump.dll"
+			],
+			"targetId" : "XrApiLayer_api_dump::@787e8d56d7c30f51fa98",
+			"targetIndex" : 28,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Layers",
+			"cxxModuleBmiTarget" : 
+			{
+				"id" : "XrApiLayer_api_dump::@787e8d56d7c30f51fa98",
+				"index" : 28
+			},
+			"destination" : "bin/api_layers",
+			"type" : "cxxModuleBmi"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Layers",
+			"destination" : "bin/api_layers",
+			"paths" : 
+			[
+				"out/build/x64-Debug/_deps/openxr-build/src/api_layers/XrApiLayer_core_validation.json"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Layers",
+			"destination" : "bin/api_layers",
+			"paths" : 
+			[
+				"_deps/openxr-build/src/api_layers/XrApiLayer_core_validation.dll"
+			],
+			"targetId" : "XrApiLayer_core_validation::@787e8d56d7c30f51fa98",
+			"targetIndex" : 29,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Layers",
+			"cxxModuleBmiTarget" : 
+			{
+				"id" : "XrApiLayer_core_validation::@787e8d56d7c30f51fa98",
+				"index" : 29
+			},
+			"destination" : "bin/api_layers",
+			"type" : "cxxModuleBmi"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/openxr-build/src/api_layers",
+		"source" : "out/build/x64-Debug/src/openxr/src/api_layers"
+	}
+}

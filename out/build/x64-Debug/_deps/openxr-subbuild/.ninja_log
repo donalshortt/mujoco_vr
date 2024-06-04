@@ -1,0 +1,21 @@
+# ninja log v5
+1	46	7392008495770980	openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-mkdir	b2d6116c25ad28c6
+1	46	7392008495770980	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-mkdir	b2d6116c25ad28c6
+47	1456	7392008509866195	openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-download	823d9cd91173e743
+1456	1499	7392008510295446	openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-update	80f2da62e9519f30
+1714	1774	7392008513043081	CMakeFiles/openxr-populate-complete	d612a6b6107ac707
+47	1456	7392008509866195	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-download	823d9cd91173e743
+1499	1541	7392008510723682	openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-patch	7558d1626f9541af
+1456	1499	7392008510295446	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-update	80f2da62e9519f30
+1499	1541	7392008510723682	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-patch	7558d1626f9541af
+1541	1584	7392008511150598	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-configure	445f4c68609ed70
+1541	1584	7392008511150598	openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-configure	445f4c68609ed70
+1584	1626	7392008511575131	openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-build	289ff5812df5a053
+1584	1626	7392008511575131	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-build	289ff5812df5a053
+1627	1669	7392008511997779	openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-install	174b38f051a73208
+1627	1669	7392008511997779	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-install	174b38f051a73208
+1669	1714	7392008512439117	openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-test	68159e637389bc28
+1669	1714	7392008512439117	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-test	68159e637389bc28
+1714	1774	7392008513043081	openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-done	d612a6b6107ac707
+1714	1774	7392008513043081	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/CMakeFiles/openxr-populate-complete	d612a6b6107ac707
+1714	1774	7392008513043081	C:/Users/Tech Labs/work/mujoco_vr/out/build/x64-Debug/_deps/openxr-subbuild/openxr-populate-prefix/src/openxr-populate-stamp/openxr-populate-done	d612a6b6107ac707

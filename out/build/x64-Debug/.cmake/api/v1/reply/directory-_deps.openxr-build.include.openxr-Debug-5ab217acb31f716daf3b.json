@@ -1,0 +1,49 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"out/build/x64-Debug/src/openxr/include/openxr/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 124,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Headers",
+			"destination" : "include/openxr",
+			"paths" : 
+			[
+				"out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_platform_defines.h",
+				"out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr.h",
+				"out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_loader_negotiation.h",
+				"out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_platform.h",
+				"out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_reflection.h",
+				"out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_reflection_structs.h",
+				"out/build/x64-Debug/_deps/openxr-build/include/openxr/openxr_reflection_parent_structs.h"
+			],
+			"type" : "file"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "_deps/openxr-build/include/openxr",
+		"source" : "out/build/x64-Debug/src/openxr/include/openxr"
+	}
+}
