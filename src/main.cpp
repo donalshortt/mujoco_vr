@@ -3,11 +3,15 @@
 #include <OpenXRDebugUtils.h>
 #include <cstdio>
 #include <cstring>
+#include <cstdlib>
+#include <iostream>
 
 // include xr linear algebra for XrVector and XrMatrix classes.
 #include <xr_linear_algebra.h>
 
 #include <mujoco/mujoco.h>
+#include <GLFW/glfw3.h>
+#include <Windows.h>
 
 // Declare some useful operators for vectors:
 XrVector3f operator-(XrVector3f a, XrVector3f b) {
@@ -46,19 +50,22 @@ class Mujoco_VR {
 			CreateSession();
 			CreateReferenceSpace();
 			CreateSwapchains();
-			CreateResources();
-
 			CreateMujoco();
 
 			while (m_applicationRunning) {
 				PollSystemEvents();
 				PollEvents();
+
 				if (m_sessionRunning) {
+					mjtNum simstart = d->time;
+					while (d->time - simstart < 1.0/60.0) {
+						mj_step(m, d);
+					}
 					RenderFrame();
 				}
 			}
 
-			DestroyResources();
+			DestroyMujoco();
 			DestroySwapchains();
 			DestroyReferenceSpace();
             DestroySession();
@@ -387,6 +394,7 @@ class Mujoco_VR {
 		void CreateMujoco() {
 			// load and compile model
 			char error[1000] = "Could not load binary model";
+			argv[1] = "C:\\Users\\Tech Labs\\work\\mujoco_vr\\model\\balloons\\balloons.xml";
 			if (std::strlen(argv[1])>4 && !std::strcmp(argv[1]+std::strlen(argv[1])-4, ".mjb")) {
 				m = mj_loadModel(argv[1], 0);
 			} else {
@@ -396,7 +404,52 @@ class Mujoco_VR {
 				mju_error("Load model error: %s", error);
 			}
 
+			// make data
+			d = mj_makeData(m);
+
+  			if (!glfwInit()) {
+    			mju_error("Could not initialize GLFW");
+			}
+
+			// Initialize GLFW
+			if (!glfwInit()) {
+				mju_error("Could not initialize GLFW");
+			}
+
+			// Create a hidden window to initialize OpenGL context
+			GLFWwindow* window = glfwCreateWindow(640, 480, "Hidden Window", nullptr, nullptr);
+			if (!window) {
+				glfwTerminate();
+				mju_error("Could not create GLFW window");
+			}
+			glfwMakeContextCurrent(window);
+
+			mjv_defaultCamera(&cam);
+			mjv_defaultOption(&opt);
+
+
+			mjv_defaultScene(&scn);
+			mjr_defaultContext(&con);
+
+
+			// create scene and context
+			mjv_makeScene(m, &scn, 2000);
+
+			Sleep(2);
+
+			XR_TUT_LOG("gawd DAAAAAMNT");
+			mjr_makeContext(m, &con, mjFONTSCALE_150);
 			XR_TUT_LOG("WOWOWOWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+		}
+
+		void DestroyMujoco() {
+			//free visualization storage
+			mjv_freeScene(&scn);
+			mjr_freeContext(&con);
+
+			// free MuJoCo model and data
+			mj_deleteData(d);
+			mj_deleteModel(m);
 		}
 
 		void DestroySwapchains() {
@@ -543,14 +596,11 @@ class Mujoco_VR {
 				renderLayerInfo.layerProjectionViews[i].subImage.imageRect.extent.height = static_cast<int32_t>(height);
 				renderLayerInfo.layerProjectionViews[i].subImage.imageArrayIndex = 0;  // Useful for multiview rendering.
 
-				// Rendering code to clear the color and depth image views.
 				m_graphicsAPI->BeginRendering();
 
 				if (m_environmentBlendMode == XR_ENVIRONMENT_BLEND_MODE_OPAQUE) {
-					// VR mode use a background color.
 					m_graphicsAPI->ClearColor(colorSwapchainInfo.imageViews[colorImageIndex], 0.17f, 0.17f, 0.17f, 1.00f);
 				} else {
-					// In AR mode make the background color black.
 					m_graphicsAPI->ClearColor(colorSwapchainInfo.imageViews[colorImageIndex], 0.00f, 0.00f, 0.00f, 1.00f);
 				}
 				m_graphicsAPI->ClearDepth(depthSwapchainInfo.imageViews[depthImageIndex], 1.0f);
@@ -559,22 +609,11 @@ class Mujoco_VR {
 				m_graphicsAPI->SetViewports(&viewport, 1);
 				m_graphicsAPI->SetScissors(&scissor, 1);
 
-				// Compute the view-projection transform.
-				// All matrices (including OpenXR's) are column-major, right-handed.
-				XrMatrix4x4f proj;
-				XrMatrix4x4f_CreateProjectionFov(&proj, m_apiType, views[i].fov, nearZ, farZ);
-				XrMatrix4x4f toView;
-				XrVector3f scale1m{1.0f, 1.0f, 1.0f};
-				XrMatrix4x4f_CreateTranslationRotationScale(&toView, &views[i].pose.position, &views[i].pose.orientation, &scale1m);
-				XrMatrix4x4f view;
-				XrMatrix4x4f_InvertRigidBody(&view, &toView);
-				XrMatrix4x4f_Multiply(&cameraConstants.viewProj, &proj, &view);
+				// Update scene with the appropriate camera view
+				mjv_updateScene(m, d, &opt, NULL, &cam, mjCAT_ALL, &scn);
 
-				renderCuboidIndex = 0;
-				// Draw a floor. Scale it by 2 in the X and Z, and 0.1 in the Y,
-				RenderCuboid({{0.0f, 0.0f, 0.0f, 1.0f}, {0.0f, -m_viewHeightM, 0.0f}}, {2.0f, 0.1f, 2.0f}, {4.4f, 0.5f, 0.5f});
-				// Draw a "table".
-				RenderCuboid({{0.0f, 0.0f, 0.0f, 1.0f}, {0.0f, -m_viewHeightM + 0.9f, -0.7f}}, {1.0f, 0.2f, 1.0f}, {0.6f, 0.6f, 0.4f});
+				// Render the MuJoCo scene
+				mjr_render({0, 0, (int)width, (int)height}, &scn, &con);
 
 				m_graphicsAPI->EndRendering();
 
@@ -591,31 +630,6 @@ class Mujoco_VR {
 			renderLayerInfo.layerProjection.views = renderLayerInfo.layerProjectionViews.data();
 
 			return true;
-		}
-
-		size_t renderCuboidIndex = 0;
-
-		void RenderCuboid(XrPosef pose, XrVector3f scale, XrVector3f color)
-		{
-			XrMatrix4x4f_CreateTranslationRotationScale(&cameraConstants.model, &pose.position, &pose.orientation, &scale);
-
-			XrMatrix4x4f_Multiply(&cameraConstants.modelViewProj, &cameraConstants.viewProj, &cameraConstants.model);
-			cameraConstants.color = {color.x, color.y, color.z, 1.0};
-			size_t offsetCameraUB = sizeof(CameraConstants) * renderCuboidIndex;
-
-			m_graphicsAPI->SetPipeline(m_pipeline);
-
-			m_graphicsAPI->SetBufferData(m_uniformBuffer_Camera, offsetCameraUB, sizeof(CameraConstants), &cameraConstants);
-			m_graphicsAPI->SetDescriptor({0, m_uniformBuffer_Camera, GraphicsAPI::DescriptorInfo::Type::BUFFER, GraphicsAPI::DescriptorInfo::Stage::VERTEX, false, offsetCameraUB, sizeof(CameraConstants)});
-			m_graphicsAPI->SetDescriptor({1, m_uniformBuffer_Normals, GraphicsAPI::DescriptorInfo::Type::BUFFER, GraphicsAPI::DescriptorInfo::Stage::VERTEX, false, 0, sizeof(normals)});
-
-			m_graphicsAPI->UpdateDescriptors();
-
-			m_graphicsAPI->SetVertexBuffers(&m_vertexBuffer, 1);
-			m_graphicsAPI->SetIndexBuffer(m_indexBuffer);
-			m_graphicsAPI->DrawIndexed(36);
-
-			renderCuboidIndex++;
 		}
 
 		struct CameraConstants {
@@ -636,80 +650,6 @@ class Mujoco_VR {
 			{0.00f, 0.00f, 1.00f, 0},
 			{0.00f, 0.0f, -1.00f, 0}};
 
-		void CreateResources() {
-			// Vertices for a 1x1x1 meter cube. (Left/Right, Top/Bottom, Front/Back)
-			constexpr XrVector4f vertexPositions[] = {
-				{+0.5f, +0.5f, +0.5f, 1.0f},
-				{+0.5f, +0.5f, -0.5f, 1.0f},
-				{+0.5f, -0.5f, +0.5f, 1.0f},
-				{+0.5f, -0.5f, -0.5f, 1.0f},
-				{-0.5f, +0.5f, +0.5f, 1.0f},
-				{-0.5f, +0.5f, -0.5f, 1.0f},
-				{-0.5f, -0.5f, +0.5f, 1.0f},
-				{-0.5f, -0.5f, -0.5f, 1.0f}};
-
-#define CUBE_FACE(V1, V2, V3, V4, V5, V6) vertexPositions[V1], vertexPositions[V2], vertexPositions[V3], vertexPositions[V4], vertexPositions[V5], vertexPositions[V6],
-
-			XrVector4f cubeVertices[] = {
-				CUBE_FACE(2, 1, 0, 2, 3, 1)  // -X
-					CUBE_FACE(6, 4, 5, 6, 5, 7)  // +X
-					CUBE_FACE(0, 1, 5, 0, 5, 4)  // -Y
-					CUBE_FACE(2, 6, 7, 2, 7, 3)  // +Y
-					CUBE_FACE(0, 4, 6, 0, 6, 2)  // -Z
-					CUBE_FACE(1, 3, 7, 1, 7, 5)  // +Z
-			};
-
-			uint32_t cubeIndices[36] = {
-				0, 1, 2, 3, 4, 5,        // -X
-				6, 7, 8, 9, 10, 11,      // +X
-				12, 13, 14, 15, 16, 17,  // -Y
-				18, 19, 20, 21, 22, 23,  // +Y
-				24, 25, 26, 27, 28, 29,  // -Z
-				30, 31, 32, 33, 34, 35,  // +Z
-			};
-
-			m_vertexBuffer = m_graphicsAPI->CreateBuffer({GraphicsAPI::BufferCreateInfo::Type::VERTEX, sizeof(float) * 4, sizeof(cubeVertices), &cubeVertices});
-
-			m_indexBuffer = m_graphicsAPI->CreateBuffer({GraphicsAPI::BufferCreateInfo::Type::INDEX, sizeof(uint32_t), sizeof(cubeIndices), &cubeIndices});
-
-			size_t numberOfCuboids = 2;
-			m_uniformBuffer_Camera = m_graphicsAPI->CreateBuffer({GraphicsAPI::BufferCreateInfo::Type::UNIFORM, 0, sizeof(CameraConstants) * numberOfCuboids, nullptr});
-			m_uniformBuffer_Normals = m_graphicsAPI->CreateBuffer({GraphicsAPI::BufferCreateInfo::Type::UNIFORM, 0, sizeof(normals), &normals});
-
-			if (m_apiType == OPENGL) {
-				std::string vertexSource = ReadTextFile("VertexShader.glsl");
-				m_vertexShader = m_graphicsAPI->CreateShader({GraphicsAPI::ShaderCreateInfo::Type::VERTEX, vertexSource.data(), vertexSource.size()});
-
-				std::string fragmentSource = ReadTextFile("PixelShader.glsl");
-				m_fragmentShader = m_graphicsAPI->CreateShader({GraphicsAPI::ShaderCreateInfo::Type::FRAGMENT, fragmentSource.data(), fragmentSource.size()});
-			}
-
-			GraphicsAPI::PipelineCreateInfo pipelineCI;
-			pipelineCI.shaders = {m_vertexShader, m_fragmentShader};
-			pipelineCI.vertexInputState.attributes = {{0, 0, GraphicsAPI::VertexType::VEC4, 0, "TEXCOORD"}};
-			pipelineCI.vertexInputState.bindings = {{0, 0, 4 * sizeof(float)}};
-			pipelineCI.inputAssemblyState = {GraphicsAPI::PrimitiveTopology::TRIANGLE_LIST, false};
-			pipelineCI.rasterisationState = {false, false, GraphicsAPI::PolygonMode::FILL, GraphicsAPI::CullMode::BACK, GraphicsAPI::FrontFace::COUNTER_CLOCKWISE, false, 0.0f, 0.0f, 0.0f, 1.0f};
-			pipelineCI.multisampleState = {1, false, 1.0f, 0xFFFFFFFF, false, false};
-			pipelineCI.depthStencilState = {true, true, GraphicsAPI::CompareOp::LESS_OR_EQUAL, false, false, {}, {}, 0.0f, 1.0f};
-			pipelineCI.colorBlendState = {false, GraphicsAPI::LogicOp::NO_OP, {{true, GraphicsAPI::BlendFactor::SRC_ALPHA, GraphicsAPI::BlendFactor::ONE_MINUS_SRC_ALPHA, GraphicsAPI::BlendOp::ADD, GraphicsAPI::BlendFactor::ONE, GraphicsAPI::BlendFactor::ZERO, GraphicsAPI::BlendOp::ADD, (GraphicsAPI::ColorComponentBit)15}}, {0.0f, 0.0f, 0.0f, 0.0f}};
-			pipelineCI.colorFormats = {m_colorSwapchainInfos[0].swapchainFormat};
-			pipelineCI.depthFormat = m_depthSwapchainInfos[0].swapchainFormat;
-			pipelineCI.layout = {{0, nullptr, GraphicsAPI::DescriptorInfo::Type::BUFFER, GraphicsAPI::DescriptorInfo::Stage::VERTEX},
-				{1, nullptr, GraphicsAPI::DescriptorInfo::Type::BUFFER, GraphicsAPI::DescriptorInfo::Stage::VERTEX},
-				{2, nullptr, GraphicsAPI::DescriptorInfo::Type::BUFFER, GraphicsAPI::DescriptorInfo::Stage::FRAGMENT}};
-			m_pipeline = m_graphicsAPI->CreatePipeline(pipelineCI);
-		}
-		void DestroyResources()
-		{
-			m_graphicsAPI->DestroyPipeline(m_pipeline);
-			m_graphicsAPI->DestroyShader(m_fragmentShader);
-			m_graphicsAPI->DestroyShader(m_vertexShader);
-			m_graphicsAPI->DestroyBuffer(m_uniformBuffer_Camera);
-			m_graphicsAPI->DestroyBuffer(m_uniformBuffer_Normals);
-			m_graphicsAPI->DestroyBuffer(m_indexBuffer);
-			m_graphicsAPI->DestroyBuffer(m_vertexBuffer);
-		}
 	private:
 		XrInstance m_xrInstance = {};
 		std::vector<const char *> m_activeAPILayers = {};
@@ -775,20 +715,7 @@ class Mujoco_VR {
 		char **argv;
 };
 
-void Mujoco_VR_Main(GraphicsAPI_Type apiType, char **argv) {
-	//DebugOutput debugOutput;  // This redirects std::cerr and std::cout to the IDE's output or Android Studio's logcat.
-	XR_TUT_LOG("VR MUJOCO START");
-	Mujoco_VR app(apiType, argv);
-	app.Run();
-}
-
 int main(int argc, char **argv) {
-	// check command-line arguments
-	if (argc!=2) {
-		std::printf(" USAGE:  basic modelfile\n");
-		return 0;
-	}
-
-	std::cout << "what in tarnation\n";
-	Mujoco_VR_Main(OPENGL, argv);
+	Mujoco_VR app(OPENGL, argv);
+	app.Run();
 }

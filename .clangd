@@ -1,2 +1,2 @@
 CompileFlags:
-  Add: ["-I../Common", "-I../../OpenXR-SDK/include", "-I../../mujoco/include"]
+  Add: ["-I../Common", "-I../../OpenXR-SDK/include", "-I../../mujoco/include", "-I../../glfw/include"]

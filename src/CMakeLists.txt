@@ -35,6 +35,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(Mujoco)
 
+FetchContent_Declare(
+	GLFW
+	URL_HASH SHA256=54EFA829400F2A0537F742B2B3BDD74E437BB4F2F048E4B7D3C5557D11A611E6
+	URL https://github.com/glfw/glfw/releases/download/3.4/glfw-3.4.bin.WIN64.zip
+	SOURCE_DIR
+	glfw
+)
+FetchContent_MakeAvailable(GLFW)
+
 # Files
 set(SOURCES
 	"main.cpp"
@@ -68,16 +77,27 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 	# From Mujoco repo
 	"${mujoco_SOURCE_DIR}/include"
+
+	# From GLFW repo
+	"${glfw_SOURCE_DIR}/include"
 )
 target_link_libraries(
 	${PROJECT_NAME} openxr_loader
 	"${mujoco_SOURCE_DIR}/lib/mujoco.lib"
+	"${glfw_SOURCE_DIR}/lib-vc2022/glfw3.lib"
 )
 
 # Copy the MuJoCo DLL to the output directory
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
     "${mujoco_SOURCE_DIR}/bin/mujoco.dll"
+    $<TARGET_FILE_DIR:${PROJECT_NAME}>
+)
+
+# Copy the GLFW DLL to the output directory
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+    "${glfw_SOURCE_DIR}/lib-vc2022/glfw3.dll"
     $<TARGET_FILE_DIR:${PROJECT_NAME}>
 )
 
